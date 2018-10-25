@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using LibVLCSharp.Shared;
 using Xamarin.Forms;
 
 namespace App17
@@ -12,6 +8,14 @@ namespace App17
         public MainPage()
         {
             InitializeComponent();
+        }
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+
+            videoView.MediaPlayer.Play(new Media(videoView.LibVLC,
+                "http://www.quirksmode.org/html5/videos/big_buck_bunny.mp4", Media.FromType.FromLocation));
         }
     }
 }
